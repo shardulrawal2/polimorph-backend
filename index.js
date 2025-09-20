@@ -392,17 +392,25 @@ app.post("/language-convert", async (req, res) => {
   }
 });
 
-// Delete All & Add
+// Delete All
 app.post("/delete-all", async (req, res) => {
   try {
     const { text, deleteText, inputLang, outputLang, hinglishIntensity } = req.body;
-    let prompt;
     
-    if (deleteText) {
-      prompt = `Remove all instances of "${deleteText}" from the following text while keeping everything else intact:\n\nOriginal: "${text}"`;
-    } else {
-      prompt = `Remove all content from the following text:\n\nOriginal: "${text}"`;
+    if (!text || text.trim() === "") {
+      return res.status(400).json({ error: "Text is required" });
     }
+    
+    if (!deleteText || deleteText.trim() === "") {
+      return res.status(400).json({ error: "Text to delete is required" });
+    }
+    
+    // Split deleteText by commas and clean up
+    const wordsToDelete = deleteText.split(',').map(word => word.trim()).filter(word => word.length > 0);
+    
+    let prompt = `Remove the following words/phrases from the text while keeping everything else intact: ${wordsToDelete.join(', ')}`;
+    prompt += `\n\nOriginal: "${text}"`;
+    prompt += `\n\nReturn ONLY the cleaned text with the specified words/phrases removed. Keep all other content exactly as it was.`;
     
     if (outputLang && outputLang !== 'english') {
       if (outputLang === 'hinglish') {
@@ -831,6 +839,11 @@ app.get("/data", (req, res) => {
 });
 
 
+
+// --- Health check route (for testing deployment) ---
+app.get("/_health", (req, res) => {
+  res.send("OK");
+});
 
 // ----------- START SERVER -----------
 const PORT = 3000;
