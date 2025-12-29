@@ -1,62 +1,118 @@
 🧠 Polimorph – AI Text Rephraser Chrome Extension
-Polimorph is a lightweight Chrome extension that helps you rephrase text using AI directly inside your browser.
-This repository contains a Polimorph Extension ZIP file.
 
-Once unzipped, the extension can be loaded locally in your browser — no coding knowledge required.
+Polimorph is a lightweight Chrome extension that helps you rephrase text using AI directly inside your browser — fast, simple, and distraction-free.
+
+This repository includes the full extension packaged in a ZIP file so it can be installed locally without coding.
+
 📦 What’s Inside
+
 polimorph-extension.zip
-→ Contains the full Chrome extension source code
+→ Full Chrome extension source code
+
 README.md
-→ Setup and usage instructions
-⚠️ Note: This extension connects to a hosted backend server.
-Users do not need Node.js or any backend setup.
-🚀 How to Use Polimorph (Local Setup)
+→ Setup & usage instructions
 
-Follow these steps carefully:
+⚠️ Note: The extension connects to a hosted backend.
+You do not need Node.js or any backend setup.
 
-Step 1: Download & Unzip
+🚀 How to Install & Use (Local Setup)
+
+Follow these steps carefully.
+
+✅ Step 1: Download & Unzip
+
 Download polimorph-extension.zip
+
 Right-click → Extract Here / Extract All
-You’ll get a folder named something like:
+
+You will get a folder like:
 
 polimorph-extension/
 
-Step 2: Open Chrome Extensions Page
-Open Google Chrome
-In the address bar, go to:
+🚨 IMPORTANT — COMMON MISTAKE
+
+When downloading ZIPs, Chrome sometimes creates:
+
+Polimorph Extension/
+   └── polimorph-extension/
+         └── manifest.json
+
+
+If you load the outer folder, Chrome shows:
+
+Manifest file is missing or unreadable
+
+You must load the inner folder that directly contains manifest.json.
+
+Keep this rule in mind:
+
+✔️ Select the folder where manifest.json is visible
+
+🌐 Step 2: Open Chrome Extensions Page
+
+Open Chrome and go to:
 
 chrome://extensions/
 
-Turn on Developer mode (top-right corner)
-Step 3: Load the Extension
-Click Load unpacked
-Select the extracted polimorph-extension folder
-The extension will now appear in your extensions list ✅
 
-Step 4: Use the Extension
-Click the Polimorph icon in your Chrome toolbar
+Turn on:
+
+Developer mode (top-right)
+
+📂 Step 3: Load the Extension
+
+Click:
+
+Load unpacked
+
+
+Select the correct extracted folder:
+
+polimorph-extension/
+
+
+The extension should now appear in your extensions list. ✅
+
+✨ Step 4: Start Using Polimorph
+
+Click the Polimorph icon in your toolbar
+
 Paste or type text
+
 Click Rephrase
-Get AI-rephrased output instantly ✨
+
+Get AI-optimized output instantly 🚀
 
 🔄 Updates & Improvements
+
 Backend updates happen automatically
-If the extension UI changes, users will need the updated ZIP
-Simply remove the old extension and load the new one
+
+If the UI changes, download the new ZIP
+
+Remove the old version and reload the new one
 
 🛠️ Tech Stack (For Developers)
-Chrome Extension (Manifest V3)
+
+Chrome Extension (Manifest v3)
+
 JavaScript
+
 Hosted Node.js backend
+
 OpenAI API
 
 🔐 Security Notes
+
 No API keys are stored in the extension
-All AI requests are securely handled by the backend
+
+All AI requests are securely handled through the backend
+
 📄 License
+
 This project is for educational and personal use.
 Please do not redistribute without permission.
 
 🙌 Author
+
 Polimorph
 Built with curiosity and experimentation 🚀
